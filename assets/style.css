@@ -23,6 +23,50 @@ header h1 {
     margin: 0px;
 }
 
+.container-fluid {
+    padding-left: 0px;
+}
+
+.current-weather {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 15px 0px;
+}
+
+#weather-conditions {
+    font-size: 18px;
+}
+
+.weather-icon {
+    filter: drop-shadow(0px 1px 2px black)
+}
+
+
+.uv-low {
+    background-color: limegreen;
+    border-radius: 5px;
+    padding: 3px 12px;
+}
+
+.uv-med {
+    background-color: yellow;
+    border-radius: 5px;
+    padding: 3px 12px;
+}
+
+.uv-high {
+    background-color: orange;
+    border-radius: 5px;
+    padding: 3px 12px;
+}
+
+.uv-extreme {
+    background-color: red;
+    border-radius: 5px;
+    padding: 3px 12px;
+    color: white;
+}
+
 /* Buttons */
 .btn-search {
     background-color: var(--lt-blue);
