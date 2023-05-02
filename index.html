@@ -22,7 +22,6 @@
 
     <div class="container-fluid">
       <div class="row">
-        
         <sidebar class="col-3">
           <h2 class="mt-2 font-weight-bold">Search for a City:</h2>
           <form id="city-form" class="mt-3">
@@ -37,10 +36,38 @@
             </button>
             <hr />
           </form>
+          <div id="city-history"></div>
         </sidebar>
 
-        <main class="col-9 border border-dark">
-          <div>MAIN CONTENT</div>
+        <main class="col-9">
+          <div class="current-weather">
+            <h2 id="city-input" class="mt-2 mb-2 font-weight-bold city-title">
+              <span id="city-name" class="pr-2"></span>
+              <span id="date"></span>
+              <span id="icon"
+                ><img id="wicon" class="weather-icon mb-1" src=""
+              /></span>
+            </h2>
+            <div id="weather-conditions" class="row">
+              <div class="col-12 mb-3">
+                <span id="temp"></span>
+              </div>
+              <div class="col-12 mb-3">
+                <span id="wind"></span>
+              </div>
+              <div class="col-12 mb-3">
+                <span id="humidity"></span>
+              </div>
+              <div class="col-12 mb-3">
+                <span id="uv-index"></span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="d-flex row-1 pl-0">5-Day Forecast:</h3>
+            <div id="daily-weather" class="row mt-3"></div>
+          </div>
         </main>
 
         <!-- Bootstrap & Javascript -->
@@ -59,8 +86,23 @@
           integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
           crossorigin="anonymous"
         ></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"
+          integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg=="
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/utc.min.js"
+          integrity="sha512-m00bfmYnAl3plEBlQfeQUhw/U2uvmw29V2+jxSWpAjankMWS+zAsjezbKWDEJNXqWq9o9qQZSOiA2RKDpa4D5w=="
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/timezone.min.js"
+          integrity="sha512-pslqxxHAYPCxaSeFSmXXxDkLejD5dbFVC66aiVq0z4v7VTJBU+wqcG1OpNh4p3MjS2D6NCwz/H2QmSc7dXxryg=="
+          crossorigin="anonymous"
+        ></script>
 
-        <script src="./assets/js/script.js"></script>
+        <script src="./assets/script.js"></script>
       </div>
     </div>
   </body>
