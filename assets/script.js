@@ -39,14 +39,23 @@ function saveCityHistory(city) {
 }
 
 function loadCityHistory() {
-  var saveCityHistory = JSON.parse(localStorage.getItem("cityArray"));
-  console.log(saveCityHistory);
-
-  if (cityArray) {
-    for (let i = 0; cityArray.length; i++) {
-      var historyButtonEl = document.createElement("button");
-      historyButtonEl.textContent = cityArray[i];
-      cityHistoryEl.appendChild(historyButtonEl);
+  const savedCityHistory = JSON.parse(localStorage.getItem("cityArray"));
+  // console.log(savedCityHistory)
+  
+  if (savedCityHistory !== null) {
+    cityArray = savedCityHistory;
+  }
+  if (typeof cityArray === "undefined") {
+    cityArray = [];
+  } else {
+    for (let i = 0; i < cityArray.length; i++) {
+      const button = document.createElement("button");
+      button.classList = "btn btn-history w-100";
+      button.textContent = cityArray[i];
+      button.addEventListener("click", function () {
+        getLatLong(cityArray[i]);
+      });
+      cityHistoryEl.appendChild(button);
     }
   }
 }
@@ -69,9 +78,9 @@ function getWeather(location) {
 }
 
 function getLatLong(data) {
-  var locationLat = data.coord.lat;
-  var locationLon = data.coord.lon;
-  var apiUrl =
+  const locationLat = data.coord.lat;
+  const locationLon = data.coord.lon;
+  const apiUrl =
     "https://api.openweathermap.org/data/2.5/onecall?lat=" +
     locationLat +
     "&lon=" +
@@ -94,15 +103,19 @@ function displayWeather(data) {
   tempEl.textContent = "Temp: " + data.main.temp + "°F";
   windEl.textContent = "Wind: " + data.wind.speed + " MPH";
   humidityEl.textContent = "Humidity: " + data.main.humidity + " %";
-  
+
   const timezone = data.timezone;
 
-  const rightNow = dayjs().tz(timezone).add(0, "day").startOf("day").format("M/D/YYYY");
+  const rightNow = dayjs()
+    .tz(timezone)
+    .add(0, "day")
+    .startOf("day")
+    .format("M/D/YYYY");
   currentDateEl.textContent = rightNow;
 
   const iconCode = data.weather[0].icon;
   const iconUrl = "https://openweathermap.org/img/wn/" + iconCode + ".png";
-  $('#wicon').attr('src', iconUrl);
+  $("#wicon").attr("src", iconUrl);
 }
 
 function displayUV(data) {
