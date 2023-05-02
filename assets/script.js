@@ -41,7 +41,7 @@ function saveCityHistory(city) {
 function loadCityHistory() {
   const savedCityHistory = JSON.parse(localStorage.getItem("cityArray"));
   // console.log(savedCityHistory)
-  
+
   if (savedCityHistory !== null) {
     cityArray = savedCityHistory;
   }
@@ -132,4 +132,37 @@ function displayUV(data) {
   }
 }
 
+function displayDailyWeather(dailyWeather, timezone) {
+  // console.log(dayjs().tz(timezone).add(1, "day").startOf("day").format("M/D/YYYY"))
+  for (let i = 1; i < 6; i++) {
+    // console.log(dailyWeather[i])
+
+    const card = document.createElement("div");
+    const dateDailyEl = document.createElement("h5");
+    const humidityDailyEl = document.createElement("p");
+    const rightNow1 = dayjs()
+      .tz(timezone)
+      .add(i, "day")
+      .startOf("day")
+      .format("M/D/YYYY");
+    const tempDailyEl = document.createElement("p");
+    const windDailyEl = document.createElement("p");
+
+    // assigning values to elements
+    dateDailyEl.textContent = rightNow1;
+    tempDailyEl.textContent = "Temp: " + dailyWeather[i].temp.day + "°F";
+    windDailyEl.textContent = "Wind: " + dailyWeather[i].wind_speed + " MPH";
+    humidityDailyEl.textContent =
+      "Humidity: " + dailyWeather[i].humidity + " %";
+
+    card.appendChild(dateDailyEl);
+    card.appendChild(tempDailyEl);
+    card.appendChild(windDailyEl);
+    card.appendChild(humidityDailyEl);
+    card.setAttribute("class", "col-md card");
+    dailyWeatherEl.appendChild(card);
+  }
+}
+
 cityForm.addEventListener("submit", formSubmitHandler);
+loadCityHistory();
