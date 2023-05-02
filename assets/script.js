@@ -110,6 +110,9 @@ function displayWeather(data) {
     .startOf("day")
     .format("M/D/YYYY");
   currentDateEl.textContent = rightNow;
+  const iconCode = data.weather[0].icon;
+  const iconUrl = "https://openweathermap.org/img/wn/" + iconCode + ".png";
+  $('#wicon').attr('src', iconUrl);
 }
 
 function displayUV(data) {

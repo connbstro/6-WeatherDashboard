@@ -10,7 +10,7 @@ This Weather Dashboard is an application that allows users to see the current we
 
 ## **Webpage**
 
-<img width="1506" alt="Screenshot 2023-05-02 at 3 04 57 PM" src="https://user-images.githubusercontent.com/117555071/235774001-1162cf58-95cd-447c-a90d-13730599349d.png">
+<img width="1507" alt="Screenshot 2023-05-02 at 3 13 26 PM" src="https://user-images.githubusercontent.com/117555071/235775540-ce22387b-b26a-4770-9307-35a04302bb00.png">
   <br/>
 
 ## **Table of Contents**
