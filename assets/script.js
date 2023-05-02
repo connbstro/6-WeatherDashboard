@@ -11,7 +11,6 @@ const windEl = document.querySelector("#wind");
 const humidityEl = document.querySelector("#humidity");
 const uvIndexEl = document.querySelector("#uv-index");
 const dailyWeatherEl = document.querySelector("#daily-weather");
-const cityArray = [];
 const cityHistoryEl = document.querySelector("#city-history");
 
 function formSubmitHandler(event) {
@@ -67,7 +66,6 @@ function getWeather(location) {
     "&appid=f3abb8e7ac5dca95fb34c9719d493299&units=imperial";
 
   fetch(apiUrl).then(function (response) {
-    // request was succesful
     if (response.ok) {
       response.json().then(function (data) {
         getLatLong(data);
@@ -99,12 +97,12 @@ function getLatLong(data) {
 }
 
 function displayWeather(data) {
-  cityNameEl.textContext = data.name;
+  cityNameEl.textContent = data.name;
   tempEl.textContent = "Temp: " + data.main.temp + "°F";
   windEl.textContent = "Wind: " + data.wind.speed + " MPH";
   humidityEl.textContent = "Humidity: " + data.main.humidity + " %";
 
-  const timezone = data.timezone;
+  const timezone = data.timezon;
 
   const rightNow = dayjs()
     .tz(timezone)
@@ -112,10 +110,6 @@ function displayWeather(data) {
     .startOf("day")
     .format("M/D/YYYY");
   currentDateEl.textContent = rightNow;
-
-  const iconCode = data.weather[0].icon;
-  const iconUrl = "https://openweathermap.org/img/wn/" + iconCode + ".png";
-  $("#wicon").attr("src", iconUrl);
 }
 
 function displayUV(data) {
@@ -133,10 +127,7 @@ function displayUV(data) {
 }
 
 function displayDailyWeather(dailyWeather, timezone) {
-  // console.log(dayjs().tz(timezone).add(1, "day").startOf("day").format("M/D/YYYY"))
   for (let i = 1; i < 6; i++) {
-    // console.log(dailyWeather[i])
-
     const card = document.createElement("div");
     const dateDailyEl = document.createElement("h5");
     const humidityDailyEl = document.createElement("p");
@@ -148,7 +139,6 @@ function displayDailyWeather(dailyWeather, timezone) {
     const tempDailyEl = document.createElement("p");
     const windDailyEl = document.createElement("p");
 
-    // assigning values to elements
     dateDailyEl.textContent = rightNow1;
     tempDailyEl.textContent = "Temp: " + dailyWeather[i].temp.day + "°F";
     windDailyEl.textContent = "Wind: " + dailyWeather[i].wind_speed + " MPH";
@@ -164,5 +154,5 @@ function displayDailyWeather(dailyWeather, timezone) {
   }
 }
 
-cityForm.addEventListener("submit", formSubmitHandler);
 loadCityHistory();
+cityForm.addEventListener("submit", formSubmitHandler);
