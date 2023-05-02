@@ -1,0 +1,35 @@
+:root {
+    --lt-blue: #5aa2e9;
+    --md-blue: #3b6ec3;
+    --dk-blue: #230855;
+    --grey: #b7b7b7;
+}
+
+body {
+    margin: 0px;
+}
+
+header {
+    width: 100%;
+    background-image: linear-gradient(90deg, var(--lt-blue), var(--md-blue));
+}
+
+header h1 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+    margin: 0px;
+}
+
+/* Buttons */
+.btn-search {
+    background-color: var(--lt-blue);
+    color: white;
+    border: none;
+    display: block;
+    margin: 15px 0px;
+    padding: 6px 0px;
+    font-size: 17px;
+}
