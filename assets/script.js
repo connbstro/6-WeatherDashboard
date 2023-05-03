@@ -63,7 +63,7 @@ function getWeather(location) {
   const apiUrl =
     "http://api.openweathermap.org/data/2.5/weather?q=" +
     location +
-    "&appid=f3abb8e7ac5dca95fb34c9719d493299&units=imperial";
+    "&appid=280e5f0f4568991215750e1123562464&units=imperial";
 
   fetch(apiUrl).then(function (response) {
     if (response.ok) {
@@ -83,7 +83,7 @@ function getLatLong(data) {
     locationLat +
     "&lon=" +
     locationLon +
-    "&appid=f3abb8e7ac5dca95fb34c9719d493299&units=imperial";
+    "&appid=280e5f0f4568991215750e1123562464&units=imperial";
 
   fetch(apiUrl).then(function (response) {
     // request was succesful
