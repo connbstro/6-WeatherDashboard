@@ -66,6 +66,7 @@ function getWeather(location) {
     "&appid=280e5f0f4568991215750e1123562464&units=imperial";
 
   fetch(apiUrl).then(function (response) {
+    // request was succesful
     if (response.ok) {
       response.json().then(function (data) {
         getLatLong(data);
@@ -112,7 +113,7 @@ function displayWeather(data) {
   currentDateEl.textContent = rightNow;
   const iconCode = data.weather[0].icon;
   const iconUrl = "https://openweathermap.org/img/wn/" + iconCode + ".png";
-  $('#wicon').attr('src', iconUrl);
+  $("#wicon").attr("src", iconUrl);
 }
 
 function displayUV(data) {
