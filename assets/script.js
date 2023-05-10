@@ -39,7 +39,7 @@ function saveCityHistory(city) {
 
 function loadCityHistory() {
   const savedCityHistory = JSON.parse(localStorage.getItem("cityArray"));
-  // console.log(savedCityHistory)
+  // console.log(savedCityHistory);
 
   if (savedCityHistory !== null) {
     cityArray = savedCityHistory;
@@ -61,9 +61,9 @@ function loadCityHistory() {
 
 function getWeather(location) {
   const apiUrl =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     location +
-    "&appid=280e5f0f4568991215750e1123562464&units=imperial";
+    "&appid=2cc05f58348af42572515376f3fbe56b&units=imperial";
 
   fetch(apiUrl).then(function (response) {
     // request was succesful
@@ -80,11 +80,11 @@ function getLatLong(data) {
   const locationLat = data.coord.lat;
   const locationLon = data.coord.lon;
   const apiUrl =
-    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
     locationLat +
     "&lon=" +
     locationLon +
-    "&appid=280e5f0f4568991215750e1123562464&units=imperial";
+    "&appid=2cc05f58348af42572515376f3fbe56b&units=imperial";
 
   fetch(apiUrl).then(function (response) {
     // request was succesful
