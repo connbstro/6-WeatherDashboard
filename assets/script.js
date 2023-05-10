@@ -63,7 +63,7 @@ function getWeather(location) {
   const apiUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     location +
-    "&appid=2cc05f58348af42572515376f3fbe56b&units=imperial";
+    "&appid=f3abb8e7ac5dca95fb34c9719d493299&units=imperial";
 
   fetch(apiUrl).then(function (response) {
     // request was succesful
@@ -80,11 +80,11 @@ function getLatLong(data) {
   const locationLat = data.coord.lat;
   const locationLon = data.coord.lon;
   const apiUrl =
-    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
     locationLat +
     "&lon=" +
     locationLon +
-    "&appid=2cc05f58348af42572515376f3fbe56b&units=imperial";
+    "&appid=f3abb8e7ac5dca95fb34c9719d493299&units=imperial";
 
   fetch(apiUrl).then(function (response) {
     // request was succesful
